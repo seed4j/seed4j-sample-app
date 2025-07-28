@@ -85,7 +85,8 @@ applyModules \
   "prettier" \
   "typescript" \
   "frontend-maven-plugin" \
-  "vue-core"
+  "vue-core" \
+  "vue-router"
 
 applyModules \
   "sonarqube-java-backend-and-frontend"
