@@ -22,12 +22,12 @@ public final class Memoizers {
     return new MemoizedFunction<>(function);
   }
 
-  private static class MemoizedFunction<Input, Result> implements Function<Input, Result> {
+  private static final class MemoizedFunction<Input, Result> implements Function<Input, Result> {
 
     private final Function<Input, Result> function;
     private final Map<MemoizedInput<Input>, MemoizedResult<Result>> results = new ConcurrentHashMap<>();
 
-    public MemoizedFunction(Function<Input, Result> function) {
+    private MemoizedFunction(Function<Input, Result> function) {
       this.function = function;
     }
 

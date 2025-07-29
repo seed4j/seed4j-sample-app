@@ -136,13 +136,13 @@ final class ApplicationStartupTraces {
 
     private final StringBuilder trace = new StringBuilder();
 
-    public ApplicationStartupTracesBuilder appendSeparator() {
+    private ApplicationStartupTracesBuilder appendSeparator() {
       trace.append(SEPARATOR).append(BREAK);
 
       return this;
     }
 
-    public ApplicationStartupTracesBuilder append(String line) {
+    private ApplicationStartupTracesBuilder append(String line) {
       if (line == null) {
         return this;
       }
@@ -152,7 +152,7 @@ final class ApplicationStartupTraces {
       return this;
     }
 
-    public String build() {
+    private String build() {
       return trace.toString();
     }
   }
