@@ -39,7 +39,7 @@ if [ "$#" -ne 1 ]; then
 fi
 
 version=$1
-payload="$(sed -e "s?JHIPSTER_LITE_SAMPLE_APP_FOLDER?$(pwd)?g" litesample.json)"
+payload="$(sed -e "s?SEED4J_SAMPLE_APP_FOLDER?$(pwd)?g" seed4jsample.json)"
 
 echo "*** Git: update project..."
 git switch $GIT_MAIN_BRANCH
@@ -53,7 +53,7 @@ find . -maxdepth 1 \
   -type f -delete
 rm -rf src
 rm -rf node_modules
-rm -rf documentation .husky .jhipster .mvn
+rm -rf documentation .husky .seed4j .mvn
 
 echo "*** Applying modules..."
 

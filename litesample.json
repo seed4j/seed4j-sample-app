@@ -1,9 +1,0 @@
-{
-  "projectFolder": "JHIPSTER_LITE_SAMPLE_APP_FOLDER",
-  "commit": false,
-  "parameters": {
-    "projectName": "JHipster Lite Sample Application",
-    "baseName": "litesample",
-    "packageName": "tech.jhipster.lite.sample"
-  }
-}

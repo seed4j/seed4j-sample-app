@@ -1,0 +1,9 @@
+{
+  "projectFolder": "SEED4J_SAMPLE_APP_FOLDER",
+  "commit": false,
+  "parameters": {
+    "projectName": "Seed4J Sample Application",
+    "baseName": "seed4jsample",
+    "packageName": "com.seed4j.sample"
+  }
+}
