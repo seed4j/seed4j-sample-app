@@ -18,14 +18,14 @@ applyModules() {
       -H "accept: */*" \
       -H "Content-Type: application/json" \
       -d "$payload" \
-      "http://localhost:7471""$api""
+      "http://localhost:1339""$api""
 
     local status_code=$(curl -o /dev/null -s -w "%{http_code}\n" \
       -X POST \
       -H "accept: */*" \
       -H "Content-Type: application/json" \
       -d "$payload" \
-      "http://localhost:7471""$api")
+      "http://localhost:1339""$api")
 
     if [[ $status_code == '40'* || $status_code == '50'* ]]; then
       echo "Error when calling API:" "$status_code" "$api"
@@ -40,6 +40,14 @@ fi
 
 version=$1
 payload="$(sed -e "s?SEED4J_SAMPLE_APP_FOLDER?$(pwd)?g" seed4jsample.json)"
+
+echo "*** Checking service health..."
+health_status=$(curl -s http://localhost:1339/management/health | jq -r '.status')
+
+if [[ "$health_status" != "UP" ]]; then
+  echo "Service is not healthy: $health_status"
+  exit 1
+fi
 
 echo "*** Git: update project..."
 git switch $GIT_MAIN_BRANCH
