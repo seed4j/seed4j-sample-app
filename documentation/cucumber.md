@@ -15,13 +15,13 @@ Feature: Simple WebService test
 You'll then have to define the glue code:
 
 ```java
-import static tech.jhipster.lite.sample.cucumber.rest.CucumberRestAssertions.*;
+import static com.seed4j.sample.cucumber.rest.CucumberRestAssertions.*;
 
+import com.seed4j.sample.cucumber.CucumberRestTemplate;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import tech.jhipster.lite.sample.cucumber.CucumberRestTemplate;
 
 public class SimpleSteps {
 
@@ -38,7 +38,6 @@ public class SimpleSteps {
     assertThatLastResponse().hasOkStatus().hasElement("$.name").withValue(name).and().hasElement("$.age").withValue(age);
   }
 }
-
 ```
 
 Use a `TestRestTemplate` to make your rest calls, so you'll have the `context` management: the stuff allowing easier assertions in the `Then` steps.
@@ -75,7 +74,6 @@ public void shouldGetResponseContent(Map<String, Object> response) {
 public void shouldGetResponseContent(List<Map<String, Object>> responses) {
   assertThatLastResponse().hasElement("$.users").containingExactly(responses);
 }
-
 ```
 
 ## Reading responses content
@@ -111,10 +109,7 @@ You may need to mock beans for your component tests, but you won't be able to do
 ```java
 @ActiveProfiles("test")
 @CucumberContextConfiguration
-@SpringBootTest(
-  classes = { JhipsterSampleApplicationApp.class, CucumberMocksConfiguration.class },
-  webEnvironment = WebEnvironment.RANDOM_PORT
-)
+@SpringBootTest(classes = { SampleApplicationApp.class, CucumberMocksConfiguration.class }, webEnvironment = WebEnvironment.RANDOM_PORT)
 public class CucumberConfiguration {
 
   // other code omitted
@@ -129,7 +124,6 @@ public class CucumberConfiguration {
     }
   }
 }
-
 ```
 
 **Careful: the mock bean names (by default the method name) must be different from the real one or else they may just be ignored**

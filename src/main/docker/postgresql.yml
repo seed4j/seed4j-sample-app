@@ -1,11 +1,11 @@
 # This configuration is intended for development purpose, it's **your** responsibility to harden it for production
 services:
   postgresql:
-    image: postgres:17.5
+    image: postgres:17.6
     # volumes:
-    #   - ~/volumes/jhipster/litesample/postgresql/:/var/lib/postgresql/data/
+    #   - ~/volumes/seed4j/seed4jsample/postgresql/:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=litesample
+      - POSTGRES_USER=seed4jsample
       - POSTGRES_PASSWORD=
       - POSTGRES_HOST_AUTH_METHOD=trust
     # If you want to expose these ports outside your dev PC,

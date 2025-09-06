@@ -4,7 +4,7 @@
   <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
   <include resource="org/springframework/boot/logging/logback/base.xml" />
 
-  <logger name="tech.jhipster.lite.sample" level="OFF" />
+  <logger name="com.seed4j.sample" level="OFF" />
 
   <logger name="ch.qos.logback" level="WARN" />
   <logger name="com.sun" level="WARN" />
@@ -22,5 +22,5 @@
   <logger name="LiquibaseSchemaResolver" level="INFO" />
   <logger name="com.zaxxer.hikari" level="WARN" />
   <logger name="io.swagger.v3.core.converter.ModelConverterContextImpl" level="WARN" />
-  <!-- jhipster-needle-logback-add-log -->
+  <!-- seed4j-needle-logback-add-log -->
 </configuration>

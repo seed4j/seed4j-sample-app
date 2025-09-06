@@ -1,7 +1,7 @@
 # This configuration is intended for development purpose, it's **your** responsibility to harden it for production
 services:
   sonar:
-    image: sonarqube:25.7.0.110598-community
+    image: sonarqube:25.9.0.112764-community
     container_name: sonar
     # Authentication is turned off for out of the box experience while trying out SonarQube
     # For real use cases delete sonar.forceAuthentication variable or set sonar.forceAuthentication=true
@@ -17,6 +17,6 @@ services:
       dockerfile: sonar/Dockerfile
     container_name: sonar-token
     environment:
-      - JHIPSTER_SONAR_URL=http://sonar:9000
+      - SEED4J_SONAR_URL=http://sonar:9000
     depends_on:
       - sonar

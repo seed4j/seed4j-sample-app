@@ -1,12 +1,11 @@
 logging:
   level:
-    tech:
-      jhipster:
-        lite:
-          sample: INFO
+    com:
+      seed4j:
+        sample: INFO
 spring:
   application:
-    name: Litesample
+    name: Seed4jsample
   jackson:
     default-property-inclusion: non_absent
   task:
@@ -15,11 +14,11 @@ spring:
         keep-alive: 10s
         max-size: 16
         queue-capacity: 100
-      thread-name-prefix: litesample-task-
+      thread-name-prefix: seed4jsample-task-
     scheduling:
       pool:
         size: 2
-      thread-name-prefix: litesample-scheduling-
+      thread-name-prefix: seed4jsample-scheduling-
   devtools:
     livereload:
       enabled: false
@@ -32,8 +31,8 @@ spring:
       poolName: Hikari
     password: ''
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/litesample
-    username: litesample
+    url: jdbc:postgresql://localhost:5432/seed4jsample
+    username: seed4jsample
   data:
     jpa:
       repositories:
@@ -65,7 +64,7 @@ spring:
       client:
         provider:
           oidc:
-            issuer-uri: http://localhost:9080/realms/jhipster
+            issuer-uri: http://localhost:9080/realms/seed4j
         registration:
           oidc:
             client-id: web_app
@@ -116,6 +115,6 @@ springdoc:
     tryItOutEnabled: true
     oauth:
       client-id: web_app
-      realm: jhipster
+      realm: seed4j
   oauth2:
-    authorization-url: http://localhost:9080/realms/jhipster/protocol/openid-connect/auth
+    authorization-url: http://localhost:9080/realms/seed4j/protocol/openid-connect/auth

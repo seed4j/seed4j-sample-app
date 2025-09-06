@@ -9,8 +9,8 @@ spring:
     hikari:
       maximum-pool-size: 2
     password: ''
-    url: jdbc:tc:postgresql:17.5:///litesample?TC_TMPFS=/testtmpfs:rw
-    username: litesample
+    url: jdbc:tc:postgresql:17.6:///seed4jsample?TC_TMPFS=/testtmpfs:rw
+    username: seed4jsample
   liquibase:
     contexts: test
   security:
@@ -18,13 +18,13 @@ spring:
       client:
         provider:
           oidc:
-            issuer-uri: http://DO_NOT_CALL:9080/realms/jhipster
+            issuer-uri: http://DO_NOT_CALL:9080/realms/seed4j
 server:
   port: 0
 springdoc:
   oauth2:
-    authorization-url: http://localhost:9080/realms/jhipster/protocol/openid-connect/auth
+    authorization-url: http://localhost:9080/realms/seed4j/protocol/openid-connect/auth
   swagger-ui:
     oauth:
       client-id: web_app
-      realm: jhipster
+      realm: seed4j

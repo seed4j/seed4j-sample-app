@@ -119,10 +119,10 @@ applyModules \
 
 npm i
 
-echo "*** Git: commit, tag and push tag..."
-git add .
-git commit -m "Release v${version}"
-git tag -a v"${version}" -m "Release v${version}"
+# echo "*** Git: commit, tag and push tag..."
+# git add .
+# git commit -m "Release v${version}"
+# git tag -a v"${version}" -m "Release v${version}"
 
-git push $GIT_REMOTE main
-git push $GIT_REMOTE v"${version}"
+# git push $GIT_REMOTE main
+# git push $GIT_REMOTE v"${version}"

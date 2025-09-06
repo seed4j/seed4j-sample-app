@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="../../../../content/images/VueLogo.png" />
     <br />
-    <img alt="JHipster logo" src="../../../../content/images/JHipster-Lite-neon-green.png" />
+    <img alt="Seed4J logo" width="200" height="200" src="../../../../content/images/seed4j_logo-name.png" />
     <h1>{{ appName }}: Vue + TypeScript + Vite</h1>
 
     <p>

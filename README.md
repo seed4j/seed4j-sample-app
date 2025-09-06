@@ -1,4 +1,4 @@
-# JHipster Lite Sample Application
+# Seed4J Sample Application
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ npm install
 - [Local server](http://localhost:8080)
 - [Local API doc](http://localhost:8080/swagger-ui.html)
 
-<!-- jhipster-needle-localEnvironment -->
+<!-- seed4j-needle-localEnvironment -->
 
 ## Start up
 
@@ -43,7 +43,7 @@ docker compose -f src/main/docker/postgresql.yml up -d
 docker compose -f src/main/docker/keycloak.yml up -d
 ```
 
-<!-- jhipster-needle-startupCommand -->
+<!-- seed4j-needle-startupCommand -->
 
 ## Documentation
 
@@ -62,4 +62,4 @@ docker compose -f src/main/docker/keycloak.yml up -d
 - [Kipe authorization](documentation/kipe-authorization.md)
 - [Sample](documentation/sample.md)
 
-<!-- jhipster-needle-documentation -->
+<!-- seed4j-needle-documentation -->

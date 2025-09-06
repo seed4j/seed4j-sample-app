@@ -1,9 +1,8 @@
 logging:
   level:
-    tech:
-      jhipster:
-        lite:
-          sample: DEBUG
+    com:
+      seed4j:
+        sample: DEBUG
 management:
   endpoints:
     access:

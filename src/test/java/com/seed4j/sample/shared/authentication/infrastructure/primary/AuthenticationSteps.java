@@ -1,0 +1,104 @@
+package com.seed4j.sample.shared.authentication.infrastructure.primary;
+
+import static org.assertj.core.api.Assertions.*;
+
+import com.seed4j.sample.cucumber.CucumberAuthenticationConfiguration;
+import com.seed4j.sample.shared.authentication.domain.Role;
+import io.cucumber.java.en.Given;
+import io.jsonwebtoken.Jwts;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Stream;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
+
+public class AuthenticationSteps {
+
+  private static final Map<String, User> users = new UsersBuilder().add("admin", Role.ADMIN).add("user", Role.USER).build();
+  private final TestRestTemplate rest;
+
+  AuthenticationSteps(TestRestTemplate rest) {
+    this.rest = rest;
+  }
+
+  @Given("I am logged in as {string}")
+  public void authenticateUser(String username) {
+    rest.getRestTemplate().setInterceptors(interceptorsWithAuthentication(username));
+  }
+
+  private List<ClientHttpRequestInterceptor> interceptorsWithAuthentication(String user) {
+    List<ClientHttpRequestInterceptor> interceptors = new ArrayList<>(rest.getRestTemplate().getInterceptors());
+
+    var userToAuthenticate = users.get(user);
+
+    assertThat(userToAuthenticate).as(unknownUserMessage(user)).isNotNull();
+
+    interceptors.add((request, body, execution) -> {
+      request.getHeaders().set(HttpHeaders.AUTHORIZATION, "Bearer " + userToAuthenticate.token());
+
+      return execution.execute(request, body);
+    });
+
+    return interceptors;
+  }
+
+  @Given("I am logged out")
+  public void logout() {
+    rest.getRestTemplate().setInterceptors(interceptorsWithoutAuthentication());
+  }
+
+  private List<ClientHttpRequestInterceptor> interceptorsWithoutAuthentication() {
+    List<ClientHttpRequestInterceptor> interceptors = new ArrayList<>(rest.getRestTemplate().getInterceptors());
+
+    interceptors.add((request, body, execution) -> {
+      request.getHeaders().remove(HttpHeaders.AUTHORIZATION);
+
+      return execution.execute(request, body);
+    });
+
+    return interceptors;
+  }
+
+  private String unknownUserMessage(String user) {
+    return "Trying to authenticate an unknown user: " + user;
+  }
+
+  private static final class UsersBuilder {
+
+    private Map<String, User> users = new ConcurrentHashMap<>();
+
+    public UsersBuilder add(String username, Role... roles) {
+      users.put(username, new User(username, roles));
+
+      return this;
+    }
+
+    public Map<String, User> build() {
+      return Collections.unmodifiableMap(users);
+    }
+  }
+
+  private static class User {
+
+    private final Map<String, Object> claims;
+
+    public User(String username, Role[] roles) {
+      claims = Map.of("preferred_username", username, "roles", Stream.of(roles).map(Role::key).toList());
+    }
+
+    private String token() {
+      return Jwts.builder()
+        .subject("authentication")
+        .signWith(CucumberAuthenticationConfiguration.JWT_KEY)
+        .claims(claims)
+        .expiration(Date.from(Instant.now().plusSeconds(300)))
+        .compact();
+    }
+  }
+}
