@@ -91,15 +91,15 @@ class HexagonalArchTest {
     @Test
     void shouldNotDependOnOtherBoundedContextDomains() {
       Stream.concat(businessContexts.stream(), sharedKernels.stream()).forEach(context -> {
-          noClasses()
-            .that()
-            .resideInAnyPackage(context + "..")
-            .should()
-            .dependOnClassesThat()
-            .resideInAnyPackage(otherBusinessContextsDomains(context))
-            .because("Contexts can only depend on classes in the same context or shared kernels")
-            .check(classes);
-        });
+        noClasses()
+          .that()
+          .resideInAnyPackage(context + "..")
+          .should()
+          .dependOnClassesThat()
+          .resideInAnyPackage(otherBusinessContextsDomains(context))
+          .because("Contexts can only depend on classes in the same context or shared kernels")
+          .check(classes);
+      });
     }
 
     @Test
@@ -234,15 +234,15 @@ class HexagonalArchTest {
     @Test
     void shouldNotDependOnSameContextPrimary() {
       Stream.concat(businessContexts.stream(), sharedKernels.stream()).forEach(context -> {
-          noClasses()
-            .that()
-            .resideInAPackage(context + ".infrastructure.secondary..")
-            .should()
-            .dependOnClassesThat()
-            .resideInAPackage(context + ".infrastructure.primary")
-            .because("Secondary should not loop to its own context's primary")
-            .check(classes);
-        });
+        noClasses()
+          .that()
+          .resideInAPackage(context + ".infrastructure.secondary..")
+          .should()
+          .dependOnClassesThat()
+          .resideInAPackage(context + ".infrastructure.primary")
+          .because("Secondary should not loop to its own context's primary")
+          .check(classes);
+      });
     }
   }
 

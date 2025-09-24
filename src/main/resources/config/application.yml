@@ -5,7 +5,7 @@ logging:
         sample: INFO
 spring:
   application:
-    name: Seed4jsample
+    name: seed4jsample
   jackson:
     default-property-inclusion: non_absent
   task:

@@ -1,0 +1,9 @@
+{
+  "module": "spring-boot-cucumber-mvc",
+  "date": "2025-09-24T10:04:56.373248557Z",
+  "properties": {
+    "projectName": "Seed4J Sample Application",
+    "baseName": "seed4jsample",
+    "packageName": "com.seed4j.sample"
+  }
+}
