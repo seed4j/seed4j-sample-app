@@ -1,12 +1,7 @@
 #!/bin/bash
 
 GIT_MAIN_BRANCH='main'
-GIT_REMOTE='origin'
-
-show_syntax() {
-  echo "Usage: $0 <X.Y.Z>" >&2
-  exit 1
-}
+GIT_REMOTE='upstream'
 
 applyModules() {
   for module in $@
@@ -38,7 +33,6 @@ if [ "$#" -ne 1 ]; then
   show_syntax
 fi
 
-version=$1
 payload="$(sed -e "s?SEED4J_SAMPLE_APP_FOLDER?$(pwd)?g" seed4jsample.json)"
 
 echo "*** Checking service health..."
@@ -118,11 +112,4 @@ applyModules \
   "sample-feature"
 
 npm i
-
-# echo "*** Git: commit, tag and push tag..."
-# git add .
-# git commit -m "Release v${version}"
-# git tag -a v"${version}" -m "Release v${version}"
-
-# git push $GIT_REMOTE main
-# git push $GIT_REMOTE v"${version}"
+npm run prettier:format
