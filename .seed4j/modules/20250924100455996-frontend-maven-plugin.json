@@ -1,9 +1,0 @@
-{
-  "module": "frontend-maven-plugin",
-  "date": "2025-09-24T10:04:55.996540199Z",
-  "properties": {
-    "projectName": "Seed4J Sample Application",
-    "baseName": "seed4jsample",
-    "packageName": "com.seed4j.sample"
-  }
-}

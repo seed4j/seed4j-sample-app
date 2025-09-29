@@ -51,6 +51,7 @@ git rebase $GIT_REMOTE/$GIT_MAIN_BRANCH
 echo "*** Deleting files and folders..."
 find . -maxdepth 1 \
   -not -name "generate.sh" \
+  -not -name "release.sh" \
   -not -name "seed4jsample.json" \
   -type f -delete
 rm -rf src

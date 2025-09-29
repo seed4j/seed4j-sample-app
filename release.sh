@@ -8,6 +8,10 @@ show_syntax() {
   exit 1
 }
 
+if [ "$#" -ne 1 ]; then
+  show_syntax
+fi
+
 version=$1
 
 echo "*** Git: commit, tag and push tag..."
