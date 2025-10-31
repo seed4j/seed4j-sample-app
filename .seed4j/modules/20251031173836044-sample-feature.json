@@ -1,0 +1,9 @@
+{
+  "module": "sample-feature",
+  "date": "2025-10-31T17:38:36.044592391Z",
+  "properties": {
+    "projectName": "Seed4J Sample Application",
+    "baseName": "seed4jsample",
+    "packageName": "com.seed4j.sample"
+  }
+}

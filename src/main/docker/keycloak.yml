@@ -1,7 +1,7 @@
 # This configuration is intended for development purpose, it's **your** responsibility to harden it for production
 services:
   keycloak:
-    image: quay.io/keycloak/keycloak:26.3.5
+    image: quay.io/keycloak/keycloak:26.4.2
     command: 'start-dev --import-realm'
     volumes:
       - ./keycloak-realm-config:/opt/keycloak/data/import

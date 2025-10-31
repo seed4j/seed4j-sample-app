@@ -1,0 +1,9 @@
+{
+  "module": "jacoco-with-min-coverage-check",
+  "date": "2025-10-31T17:38:35.312179040Z",
+  "properties": {
+    "projectName": "Seed4J Sample Application",
+    "baseName": "seed4jsample",
+    "packageName": "com.seed4j.sample"
+  }
+}

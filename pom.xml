@@ -126,7 +126,7 @@
     </dependency>
     <dependency>
       <groupId>org.testcontainers</groupId>
-      <artifactId>postgresql</artifactId>
+      <artifactId>testcontainers-postgresql</artifactId>
       <version>${testcontainers.version}</version>
       <scope>test</scope>
     </dependency>
@@ -179,32 +179,32 @@
   </dependencies>
 
   <properties>
-    <java.version>21</java.version>
+    <java.version>25</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <maven.version>3.6.3</maven.version>
-    <junit-jupiter.version>5.13.4</junit-jupiter.version>
+    <junit-jupiter.version>6.0.0</junit-jupiter.version>
 
-    <maven-enforcer-plugin.version>3.6.1</maven-enforcer-plugin.version>
+    <maven-enforcer-plugin.version>3.6.2</maven-enforcer-plugin.version>
     <compiler-plugin.version>3.14.1</compiler-plugin.version>
     <surefire-plugin.version>3.5.4</surefire-plugin.version>
     <failsafe-plugin.version>3.5.4</failsafe-plugin.version>
-    <jacoco.version>0.8.11</jacoco.version>
+    <jacoco.version>0.8.14</jacoco.version>
     <commons-lang3.version>3.19.0</commons-lang3.version>
-    <spring-boot.version>3.5.6</spring-boot.version>
+    <spring-boot.version>3.5.7</spring-boot.version>
     <reflections.version>0.10.2</reflections.version>
     <archunit-junit5.version>1.4.1</archunit-junit5.version>
     <git-commit-id-plugin.version>9.0.2</git-commit-id-plugin.version>
     <frontend-maven-plugin.version>1.15.4</frontend-maven-plugin.version>
-    <npm.version>11.6.1</npm.version>
-    <node.version>v22.20.0</node.version>
+    <npm.version>11.6.2</npm.version>
+    <node.version>v24.11.0</node.version>
     <properties-maven-plugin.version>1.2.1</properties-maven-plugin.version>
     <sonar-maven-plugin.version>5.2.0.4988</sonar-maven-plugin.version>
-    <testcontainers.version>1.21.3</testcontainers.version>
+    <testcontainers.version>2.0.1</testcontainers.version>
     <liquibase.version>4.33.0</liquibase.version>
     <springdoc-openapi.version>2.8.13</springdoc-openapi.version>
-    <cucumber.version>7.29.0</cucumber.version>
+    <cucumber.version>7.31.0</cucumber.version>
     <json-web-token.version>0.13.0</json-web-token.version>
   </properties>
 
