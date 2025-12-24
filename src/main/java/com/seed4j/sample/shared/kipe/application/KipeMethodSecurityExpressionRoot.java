@@ -2,22 +2,29 @@ package com.seed4j.sample.shared.kipe.application;
 
 import com.seed4j.sample.shared.generation.domain.ExcludeFromGeneratedCodeCoverage;
 import java.util.function.Supplier;
+import org.aopalliance.intercept.MethodInvocation;
+import org.jspecify.annotations.Nullable;
 import org.springframework.security.access.expression.SecurityExpressionRoot;
 import org.springframework.security.access.expression.method.MethodSecurityExpressionOperations;
 import org.springframework.security.core.Authentication;
 
 @ExcludeFromGeneratedCodeCoverage(reason = "Spring glue bean")
-class KipeMethodSecurityExpressionRoot extends SecurityExpressionRoot implements MethodSecurityExpressionOperations {
+class KipeMethodSecurityExpressionRoot extends SecurityExpressionRoot<MethodInvocation> implements MethodSecurityExpressionOperations {
 
   private final AccessEvaluator evaluator;
 
   private Object filterObject;
   private Object returnObject;
-  private Object target;
+  private final Object target;
 
-  public KipeMethodSecurityExpressionRoot(Supplier<Authentication> authentication, AccessEvaluator evaluator) {
-    super(authentication);
+  public KipeMethodSecurityExpressionRoot(
+    Supplier<? extends @Nullable Authentication> authentication,
+    MethodInvocation methodInvocation,
+    AccessEvaluator evaluator
+  ) {
+    super(authentication, methodInvocation);
     this.evaluator = evaluator;
+    this.target = methodInvocation.getThis();
   }
 
   @Override
@@ -38,10 +45,6 @@ class KipeMethodSecurityExpressionRoot extends SecurityExpressionRoot implements
   @Override
   public Object getReturnObject() {
     return returnObject;
-  }
-
-  void setThis(Object target) {
-    this.target = target;
   }
 
   @Override

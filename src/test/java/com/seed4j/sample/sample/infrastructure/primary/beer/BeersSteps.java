@@ -2,7 +2,7 @@ package com.seed4j.sample.sample.infrastructure.primary.beer;
 
 import static com.seed4j.sample.cucumber.rest.CucumberRestAssertions.*;
 
-import com.seed4j.sample.cucumber.rest.CucumberRestTemplate;
+import com.seed4j.sample.cucumber.rest.CucumberRestClient;
 import com.seed4j.sample.cucumber.rest.CucumberRestTestContext;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,9 +18,9 @@ public class BeersSteps {
     }
     """;
 
-  private final CucumberRestTemplate rest;
+  private final CucumberRestClient rest;
 
-  BeersSteps(CucumberRestTemplate rest) {
+  BeersSteps(CucumberRestClient rest) {
     this.rest = rest;
   }
 

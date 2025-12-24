@@ -17,16 +17,15 @@ You'll then have to define the glue code:
 ```java
 import static com.seed4j.sample.cucumber.rest.CucumberRestAssertions.*;
 
-import com.seed4j.sample.cucumber.CucumberRestTemplate;
+import com.seed4j.sample.cucumber.rest.CucumberRestClient;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 
 public class SimpleSteps {
 
   @Autowired
-  private CucumberRestTemplate rest;
+  private CucumberRestClient rest;
 
   @When("I get simple bean {string}")
   public void callSimpleWebService(String bean) {
@@ -40,7 +39,7 @@ public class SimpleSteps {
 }
 ```
 
-Use a `TestRestTemplate` to make your rest calls, so you'll have the `context` management: the stuff allowing easier assertions in the `Then` steps.
+Use a `CucumberRestClient` to make your rest calls, so you'll have the `context` management: the stuff allowing easier assertions in the `Then` steps.
 
 The `assertThatLastResponse()` is a fluent API to assert your WebServices results.
 

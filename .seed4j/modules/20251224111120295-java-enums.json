@@ -1,0 +1,9 @@
+{
+  "module": "java-enums",
+  "date": "2025-12-24T11:11:20.295010160Z",
+  "properties": {
+    "projectName": "Seed4J Sample Application",
+    "baseName": "seed4jsample",
+    "packageName": "com.seed4j.sample"
+  }
+}
